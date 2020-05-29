@@ -5,14 +5,14 @@
 #include <IRremoteESP8266.h>
 #include <IRsend.h>
 
-#include "CONFIGURATIONS.h" //depands network konfiguration data
+#include "CONFIGURATIONS.h" //contains network configuration data
 
 //RF and IR code-data
 const long RCSWITCHCODE[][2]      =   {{280608, 1045296}, {12494204, 11940012}, {772380, 1045308}, {1045298, 772370}}; //{230816 (fehlerhaft),1045300(ok)}
 const unsigned long IRCOLORCODE[] =   {0xF7A05F, 0xF7906F, 0xF7B04F, 0xF78877, 0xF7A857, 0xF7609F, 0xF750AF, 0xF7708F, 0xF748B7, 0xF76897, 0xF720DF, 0xF710EF, 0xF730CF, 0xF708F7, 0xF728D7};
 const unsigned long IRCCODE[]     =   {0xF740BF, 0xF7C03F, 0xF7E01F, 0xF7807F, 0xF700FF};
 
-//Network configuration
+//network configuration
 IPAddress subnet(255, 255, 255, 0);         
 ESP8266WebServer server(80);    //server port
 
@@ -21,7 +21,7 @@ IRsend irsend(4);
 
 void setup() {
   Serial.begin(115200);
-  delay(100);                   //10ms waiting for serial begin
+  delay(100);                   //10ms: waiting for serial begin
   Serial.println("");
   Serial.print("try to connect with wifi");
 
@@ -39,7 +39,7 @@ void setup() {
   Serial.print(">mac: ");
   Serial.println(WiFi.macAddress());
   
-  //if servlet "/do" is requested the "callDo"-method starts.
+  //if servlet "/do" is requested "callDo"-method starts.
   server.on("/do", callDo);
   server.begin(); 
 
@@ -90,7 +90,7 @@ void callDo() {
   sendResult(log_string);
 }
 
-//send result, wich will be displayed in android app
+//send result which will be displayed in android app
 void sendResult(String content) {
   //200 ist die Antwort das alles OK ist, text/html ist der MimeType
   server.send(200, "text/html", content);

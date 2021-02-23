@@ -1,5 +1,0 @@
-//Network configuration
-#define WLANPASSWORD "password"  
-#define WLANSSID "ssid"                      
-#define IP { 000, 000, 000, 000 }             
-#define GATEWAY {000, 000, 000, 1 }         

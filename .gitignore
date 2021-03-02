@@ -1,2 +1,4 @@
-# ignore the file literally named CONFIGURATIONS.h
 /NodeMCU/CONFIGURATIONS.h
+/Win10-taskbar-app/settings.txt
+/Win10-taskbar-app/out/
+/Win10-taskbar-app/.idea
